@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a th:href="@{/home}">Home</a></li>
+    <li><a th:href="@{/events}">Eventos</a></li>
+    <li><a th:href="@{/events/create}">Crear Evento</a></li>
+    <li>
+      <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-link" style="padding: 0; text-decoration: none;">
+          Logout
+        </button>
+      </form>
+    </li>
+  </ul>
+</nav>
+<div id="tabla_mitad" style="display: table">
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Fecha</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="events : ${events}">
+    <td th:text="${events.id}"></td>
+    <td th:text="${events.name}"></td>
+    <td th:text="${events.date}"></td>
+    <td>
+      <a th:href="@{/events/edit/{id}(id=${events.id})}">Editar</a>
+      <form th:action="@{/events/delete/{id}(id=${events.id})}" method="post">
+        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este evento?');">Eliminar</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+
+    </tr>
+    </thead>
+    <tr th:each="user : ${user}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.name}"></td>
+      <td>
+  </table>
+</div>
+</body>
+</html>

@@ -1,5 +1,4 @@
 package com.tareapw.entity;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,18 +10,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "rols")
-public class RolsEntity {
+@Table(name = "events")
+public class EventsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id")
+    @Column(name = "event_id")
     private Long id;
 
     @Column(unique = true)
     private String name;
+
+    private LocalDate date;
 }

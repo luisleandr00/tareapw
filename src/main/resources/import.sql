@@ -1,0 +1,4 @@
+INSERT INTO rols(name) VALUES('USER');
+INSERT INTO rols(name) VALUES('EDITOR');
+INSERT INTO rols(name) VALUES('CREATOR');
+INSERT INTO rols(name) VALUES('ADMIN');
